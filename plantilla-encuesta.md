@@ -21,7 +21,7 @@ Evaluar los hábitos alimenticios, patrones de consumo y determinantes psicosoci
 
 **Metodológico:** Sin restricción de frecuencia o lugar de consumo (casa/fuera) para capturar diversidad de conductas.  
 
-**Temporal:** Estudio transversal que analiza el comportamiento actual.  
+**Temporal:** Estudio observacional que analiza el comportamiento actual.  
 
 ### Justificación
 **Etapa de transición:** Entre los 18 y 25 años se consolidan los hábitos independientes debido al ritmo universitario o laboral.  
