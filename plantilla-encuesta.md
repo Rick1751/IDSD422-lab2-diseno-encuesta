@@ -1,8 +1,9 @@
 # Plantilla de diseño — Encuesta de satisfacción (hito 1)
 
-**Equipo:** ___ · **Integrantes:** ___ · **Fecha:** 20/10/2026
-**Repositorio (fork):** github.com/[usuario]/IDSD422-lab2-diseno-encuesta
-**Enfoque del equipo (aprobado en clase):** ___
+**Equipo:** 1· 
+**Integrantes:**Carlos Rojas, David Amanta, Esteban Valenzuela, Ricardo Leon, Alan Tingo   **Fecha:** 26/10/2026
+**Repositorio (fork):** https://github.com/Rick1751/IDSD422-lab2-diseno-encuesta
+**Enfoque del equipo:** Habitos Alimenticios  
 
 Completa cada sección. Usa commits por sección; la historia del repositorio se revisa.
 
