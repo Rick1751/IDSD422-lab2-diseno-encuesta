@@ -1,5 +1,6 @@
 # Sistema
 .DS_Store
+.vscode/
 
 # Datos recolectados (no subir respuestas reales sin anonimizar)
 plantillas/respuestas_reales*.csv

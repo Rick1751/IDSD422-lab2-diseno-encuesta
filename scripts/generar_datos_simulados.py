@@ -33,6 +33,7 @@ def main() -> None:
             "Semanal",
             "Quincenal",
             "Mensual",
+            "Menos de una vez al mes",
         ],
         "etiquetas": [
             "Ingredientes",
