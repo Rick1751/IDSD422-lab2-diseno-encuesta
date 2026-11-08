@@ -1,160 +1,166 @@
 # Plantilla de diseño — Encuesta de satisfacción
 
 **Equipo:** 1  
-**Integrantes:** Carlos Rojas, David Amanta, Esteban Valenzuela, Ricardo Leon, Alan Tingo   
-**Fecha:** 26/10/2026  
+**Integrantes:** Carlos Rojas, David Amanta, Esteban Valenzuela, Ricardo Leon, Alan Tingo  
+**Fecha:** 08/11/2026  
 **Repositorio (fork):** https://github.com/Rick1751/IDSD422-lab2-diseno-encuesta  
-**Enfoque del equipo:** Habitos Alimenticios  
+**Enfoque del equipo:** Jóvenes de 18 a 25 años que compran en RetailAndina, Quito
 
 ## 1. Objetivo de la encuesta
 
-Evaluar los hábitos alimenticios, patrones de consumo y determinantes psicosociales como el estrés, entorno y alimentación distraída en la población objetivo, con el fin de identificar sesgos perceptivos, conductas automáticas y áreas de oportunidad para la promoción de estilos de vida saludables.
+Estimar, dentro de la muestra, la proporción de jóvenes de 18 a 25 años que compran en RetailAndina y califican con 4 o 5 la variedad de alimentos saludables, además de describir su frecuencia de compra. Estos resultados orientarán la decisión de ampliar el surtido saludable y diseñar promociones para ese segmento en Quito.
 
 ## 2. Población objetivo
 
-- **Población**:Jóvenes de 18 a 25 años trabajadores o estudiantes, que sean habitantes de la zona urbana de Quito, sin importar cuantas veces se alimenten al dia ya sea en su casa o fuera de ella
+- **Población:** Personas de 18 a 25 años, estudiantes o trabajadoras, residentes en la zona urbana de Quito, que hayan comprado alimentos en RetailAndina al menos una vez en los últimos tres meses.
+- **Inclusión:** Cumplir la edad, residir en Quito y tener experiencia reciente de compra en RetailAndina.
+- **Exclusión:** Menores de 18 años, mayores de 25, personas que no residan en Quito o que no hayan comprado en RetailAndina en los últimos tres meses.
 
-### Límites del Estudio
-**Geográfico:** Exclusivamente la zona urbana de Quito (se excluyen parroquias rurales).  
+### Límites del estudio
 
-**Demográfico:** Jóvenes de 18 a 25 años que sean estudiantes o trabajadores.  
-
-**Metodológico:** Sin restricción de frecuencia o lugar de consumo (casa/fuera) para capturar diversidad de conductas.  
-
-**Temporal:** Estudio observacional que analiza el comportamiento actual.  
+**Geográfico:** Zona urbana de Quito; se excluyen parroquias rurales y otras ciudades.  
+**Demográfico:** Jóvenes de 18 a 25 años que estudian, trabajan o realizan ambas actividades.  
+**Comercial:** Compradores recientes de alimentos en RetailAndina, porque pueden evaluar la oferta de la cadena.  
+**Temporal:** Percepción y hábitos declarados al momento de responder, durante noviembre de 2026.
 
 ### Justificación
-**Etapa de transición:** Entre los 18 y 25 años se consolidan los hábitos independientes debido al ritmo universitario o laboral.  
 
-**Contexto urbano:** Quito presenta dinámicas de tiempo, movilidad y oferta comercial que condicionan las decisiones de consumo.  
+El segmento permite estudiar una población alcanzable y relevante para la decisión de surtido y promociones. La experiencia reciente de compra evita pedir opiniones a personas que no conocen RetailAndina, mientras que el límite de Quito mantiene comparable el contexto de tiendas, precios y disponibilidad.
 
-**Identificación de sesgos:** Incluir todo tipo de patrón de ingesta permite contrastar la percepción del participante frente a sus comportamientos reales (estrés, distracción y conveniencia).  
 ## 3. Método de muestreo
 
-**Método:**
-Muestreo no probabilístico por conveniencia. Se seleccionó este método debido a la accesibilidad directa a los participantes y la factibilidad operativa del estudio, lo que permite abordar a las personas en entornos cotidianos y verificar sus criterios de inclusión en el momento.
+**Método:** Muestreo no probabilístico por conveniencia con referidos declarados. Se contactará a personas accesibles por canales digitales y se verificará la elegibilidad con preguntas filtro. Este método es viable para reunir las 15 a 30 respuestas reales exigidas por la práctica, pero no permite generalizar los resultados a todos los jóvenes de Quito; esa limitación se declarará en el informe.
 
-**Tamaño y justificación:**
+**Tamaño y justificación:** Se recolectaron 24 respuestas reales, dentro de la meta de 15 a 30 respuestas exigida por la práctica. Para practicar el análisis sin confundirlas con evidencia de campo, se generaron 100 registros simulados con código, marcados en `origen`; nunca se presentan como respuestas reales.
 
-La muestra real consta de 15 a 30 participantes. Este tamaño permite obtener un volumen de datos primarios auténticos y manejables dentro del tiempo disponible. Adicionalmente, la base de datos se complementa con registros simulados hasta alcanzar un total de 60 a 100 filas, incluyendo la variable origen (real o simulado) para garantizar la trazabilidad del análisis.
+**Cómo se seleccionarán los participantes:** Cada integrante difundirá el formulario a contactos de 18 a 25 años que vivan en Quito y hayan comprado en RetailAndina en los últimos tres meses. El formulario finalizará para quienes no cumplan los filtros. Se procurará diversidad de edades, ocupación y frecuencia de compra.
 
-**Cómo se seleccionarán los participantes:**
+**Equivalente en Python (selección por conveniencia):**
 
-Los participantes serán contactados de manera virtual e individual a través de canales digitales y redes sociales. Al iniciar la encuesta de google forms, el sistema aplicará preguntas de filtro obligatorias y automatizadas para verificar que la persona cumpla con los criterios de inclusión (tener entre 18 y 25 años, residir en la zona urbana de Quito y ser estudiante o trabajador).
+```python
+import pandas as pd
 
-- **Equivalente en código (Python o R):** la línea que implementa tu método sobre un CSV de clientes (aleatorio simple, estratificado o conveniencia) con el resultado de una corrida con semilla, y una frase sobre por qué tu método (y no la conveniencia) justifica el hito.
+respuestas = pd.read_csv("plantillas/encuesta_respuestas.csv")
+elegibles = respuestas.query(
+    "origen == 'real' and edad >= 18 and edad <= 25 "
+    "and compra_reciente_retailandina == 'Sí'"
+)
+muestra = elegibles.sample(
+    n=min(30, len(elegibles)),
+    random_state=422,
+)
+print(muestra[["respuesta_id", "edad", "ocupacion"]])
+```
+
+El formulario verificó la residencia en Quito, pero esa variable no se guarda en el CSV para minimizar datos personales. `sample()` selecciona de forma reproducible hasta 30 casos elegibles disponibles; no constituye un muestreo aleatorio de toda la ciudad. Por ello los resultados se interpretarán como descriptivos de la muestra.
 
 ## 4. Cuestionario (10 preguntas)
 
-*Preguntas neutras, específicas, una idea por pregunta, opciones exhaustivas y excluyentes.*
+Las preguntas son neutras, específicas y corresponden a una sola idea. Las preguntas 1 y 3 funcionan como filtros de elegibilidad.
 
-| #   | Pregunta                      | Tipo de variable              | Dtype al cargar       | Opciones / escala                                                     |
-| --- | ----------------------------- | ----------------------------- | --------------------- | --------------------------------------------------------------------- |
-| 1   | `edad`                        | Cuantitativa discreta         | `int64`               | Valor numérico (18 a 25)                                              |
-| 2   | `ocupacion`                   | Cualitativa nominal           | `category` / `object` | Estudiante, Trabajador, Ambos                                         |
-| 3   | `zona_residencia`             | Cualitativa nominal           | `category` / `object` | Urbana Quito (Filtro)                                                 |
-| 4   | `lugar_comida_frecuente`      | Cualitativa nominal           | `category` / `object` | Casa, Fuera de casa, Ambos por igual                                  |
-| 5   | `frecuencia_ultraprocesados`  | Cualitativa ordinal           | `category`            | 1: Nunca, 2: Rara vez, 3: A veces, 4: Frecuentemente, 5: Casi siempre |
-| 6   | `comer_distraido_pantallas`   | Cuantitativa continua / Razón | `float64`             | Porcentaje de comidas frente a pantalla (0.0 a 100.0 %)               |
-| 7   | `tiempo_promedio_almuerzo`    | Cuantitativa discreta         | `int64`               | Minutos promedio por comida (ej. 15, 30, 45)                          |
-| 8   | `lectura_etiquetas`           | Cualitativa nominal           | `category` / `object` | Ingredientes, Tabla nutricional, Sellos frontales, Ninguna            |
-| 9   | `planifica1cion_menu_semanal` | Cualitativa ordinal           | `category`            | 1: Nada planificado, 2: Poco, 3: Moderado, 4: Totalmente planificado  |
-| 10  | `influencia_entorno_social`   | Cualitativa ordinal           | `category`            | 1: Sin influencia, 2: Leve, 3: Moderada, 4: Alta influencia           |
+| # | Variable | Pregunta | Tipo de variable | Dtype al cargar | Opciones / escala |
+|---|---|---|---|---|---|
+| 1 | `edad` | ¿Cuántos años cumplidos tienes? | Cuantitativa discreta | `int64` | Valor numérico de 18 a 25 |
+| 2 | `ocupacion` | ¿Cuál es tu ocupación actual? | Cualitativa nominal | `object` | Estudiante, Trabajador, Ambos |
+| 3 | `compra_reciente_retailandina` | ¿Has comprado alimentos en RetailAndina durante los últimos tres meses? | Cualitativa nominal | `object` | Sí, No |
+| 4 | `frecuencia_compra_retailandina` | ¿Con qué frecuencia compras alimentos en RetailAndina? | Cualitativa ordinal | `object` | Varias veces por semana, Semanal, Quincenal, Mensual, Menos de una vez al mes |
+| 5 | `frecuencia_ultraprocesados` | ¿Con qué frecuencia consumes alimentos ultraprocesados, es decir, comida rápida, snacks empaquetados y bebidas azucaradas en conjunto? | Cualitativa ordinal | `int64` | 1 Nunca, 2 Rara vez, 3 A veces, 4 Frecuentemente, 5 Casi siempre |
+| 6 | `comer_distraido_pantallas` | De los alimentos que compras en RetailAndina, ¿qué porcentaje aproximado de tus comidas principales realizas frente a una pantalla? | Cuantitativa continua | `float64` | Número de 0 a 100 |
+| 7 | `tiempo_promedio_almuerzo` | En promedio, ¿cuántos minutos dedicas a tu almuerzo habitual preparado con alimentos comprados en RetailAndina? | Cuantitativa discreta | `int64` | Número entero en minutos |
+| 8 | `lectura_etiquetas` | ¿Qué información revisas en la etiqueta de un producto empaquetado? Puedes marcar más de una. | Cualitativa nominal múltiple | `object` | Ingredientes, Tabla nutricional, Sellos frontales, Ninguna |
+| 9 | `planificacion_menu_semanal` | ¿En qué medida planificas o preparas con anticipación tu menú semanal? | Cualitativa ordinal | `int64` | 1 Nada, 2 Poco, 3 Moderado, 4 Totalmente |
+| 10 | `satisfaccion_variedad_saludable` | ¿Qué tan satisfecho o satisfecha estás con la variedad de alimentos saludables en RetailAndina? | Cualitativa ordinal | `int64` | 1 Muy insatisfecho/a, 2 Insatisfecho/a, 3 Ni satisfecho/a ni insatisfecho/a, 4 Satisfecho/a, 5 Muy satisfecho/a |
 
-### Filtros de elegibilidad y datos generales
+### Formulario
 
-**1. Edad**  
-`edad`  
-¿Cuántos años cumplidos tienes?  
-* [ ] Menor de 18 *(Finalizar encuesta)*  
-* [ ] 18 a 25 años  
-* [ ] Mayor de 25 *(Finalizar encuesta)*  
+**1. Edad — `edad`**  
+¿Cuántos años cumplidos tienes? Respuesta numérica. Si está fuera de 18 a 25, finalizar la encuesta.
 
-**2. Ocupación actual**  
-`ocupacion`  
-¿Cuál es tu ocupación principal?  
-* [ ] Estudiante  
-* [ ] Trabajador  
-* [ ] Ambos (Estudiante y Trabajador)  
+**2. Ocupación — `ocupacion`**  
+¿Cuál es tu ocupación actual?
 
-**3. Lugar de residencia**  
-`zona_residencia`  
-¿Resides actualmente en la zona urbana de Quito?  
-* [ ] Sí  
-* [ ] No 
+- Estudiante
+- Trabajador
+- Ambos (estudiante y trabajador)
 
-**4. Lugar de comida frecuente**  
-`lugar_comida_frecuente`  
-¿Dónde realizas habitualmente la mayoría de tus comidas principales?  
-* [ ] En casa  
-* [ ] Fuera de casa  
-* [ ] Ambos por igual  
+**3. Compra reciente — `compra_reciente_retailandina`**  
+¿Has comprado alimentos en RetailAndina durante los últimos tres meses?
 
-**5. Frecuencia de consumo de alimentos ultraprocesados**  
-`frecuencia_ultraprocesados`  
-¿Con qué frecuencia consumes comida rápida, snacks empaquetados o bebidas azucaradas durante la semana?  
-* ( ) 1 - Nunca  
-* ( ) 2 - Rara vez  
-* ( ) 3 - A veces  
-* ( ) 4 - Frecuentemente  
-* ( ) 5 - Casi siempre  
+- Sí
+- No (finalizar la encuesta)
 
-**6. Alimentación distraída**  
-`comer_distraido_pantallas`  
-Aproximadamente, ¿qué porcentaje de tus comidas principales realizas frente a una pantalla (celular, televisión o computadora)?  
-*(Ingresa un valor numérico estimado de 0 a 100 %)*  
-`[ ________ % ]`  
+**4. Frecuencia de compra — `frecuencia_compra_retailandina`**  
+¿Con qué frecuencia compras alimentos en RetailAndina?
 
-**7. Tiempo promedio de almuerzo**  
-`tiempo_promedio_almuerzo`  
-En promedio, ¿cuántos minutos dedicas a tu almuerzo habitual?  
-*(Ingresa el tiempo estimado en minutos)*  
-`[ ________ minutos ]`  
+- Varias veces por semana
+- Semanal
+- Quincenal
+- Mensual
+- Menos de una vez al mes
 
-**8. Lectura de etiquetas nutricionales**  
-`lectura_etiquetas`  
-Al comprar un producto empaquetado, ¿qué información revisas con mayor frecuencia en la etiqueta?  
-* [ ] Ingredientes  
-* [ ] Tabla nutricional  
-* [ ] Sellos frontales  
-* [ ] Ninguna  
+**5. Consumo de ultraprocesados — `frecuencia_ultraprocesados`**  
+¿Con qué frecuencia consumes alimentos ultraprocesados, es decir, comida rápida, snacks empaquetados y bebidas azucaradas en conjunto?
 
-**9. Planificación del menú semanal**  
-`planificacion_menu_semanal`  
-¿En qué medida planificas o preparas con anticipación tu menú semanal de comidas?  
-* ( ) 1 - Nada planificado  
-* ( ) 2 - Poco  
-* ( ) 3 - Moderado  
-* ( ) 4 - Totalmente planificado  
+- 1 — Nunca
+- 2 — Rara vez
+- 3 — A veces
+- 4 — Frecuentemente
+- 5 — Casi siempre
 
-**10. Influencia del entorno social**  
-`influencia_entorno_social`  
-¿En qué grado tus decisiones de alimentación cambian según la compañía (amigos, compañeros de estudio/trabajo o pareja)?  
-* ( ) 1 - Sin influencia  
-* ( ) 2 - Leve  
-* ( ) 3 - Moderada  
-* ( ) 4 - Alta influencia
+**6. Alimentación frente a pantallas — `comer_distraido_pantallas`**  
+De los alimentos que compras en RetailAndina, ¿qué porcentaje aproximado de tus comidas principales realizas frente a una pantalla (celular, televisión o computadora)? Ingresa un número de 0 a 100.
 
+**7. Tiempo de almuerzo — `tiempo_promedio_almuerzo`**  
+En promedio, ¿cuántos minutos dedicas a tu almuerzo habitual preparado con alimentos comprados en RetailAndina? Ingresa un número entero.
+
+**8. Lectura de etiquetas — `lectura_etiquetas`**  
+¿Qué información revisas en la etiqueta de un producto empaquetado? Puedes marcar más de una.
+
+- Ingredientes
+- Tabla nutricional
+- Sellos frontales
+- Ninguna
+
+**9. Planificación del menú — `planificacion_menu_semanal`**  
+¿En qué medida planificas o preparas con anticipación tu menú semanal?
+
+- 1 — Nada
+- 2 — Poco
+- 3 — Moderado
+- 4 — Totalmente
+
+**10. Variedad saludable en RetailAndina — `satisfaccion_variedad_saludable`**  
+¿Qué tan satisfecho o satisfecha estás con la variedad de alimentos saludables en RetailAndina?
+
+- 1 — Muy insatisfecho/a
+- 2 — Insatisfecho/a
+- 3 — Ni satisfecho/a ni insatisfecho/a
+- 4 — Satisfecho/a
+- 5 — Muy satisfecho/a
 
 ## 5. Análisis de sesgos
 
-*Identifica 2 problemas potenciales de esta encuesta y su mitigación.*
-
-| Sesgo potencial | Mitigación |
-| --------------- | ---------- |
-| 1.              |            |
-| 2.              |            |
+| Sesgo potencial | Cómo podría aparecer | Mitigación |
+|---|---|---|
+| Sesgo de selección | La muestra se obtiene de contactos de los integrantes y puede sobre representar estudiantes, conocidos y clientes frecuentes. | Usar referidos de perfiles distintos, buscar variedad de edades y ocupación, aplicar los mismos filtros a todos y declarar que el muestreo es por conveniencia. |
+| Sesgo de respuesta | Una persona puede declarar mayor satisfacción por cortesía o evitar criticar a RetailAndina. | Aplicar una encuesta anónima, no pedir nombre ni correo, usar redacción neutral, permitir respuestas intermedias y explicar que no afecta sus compras ni beneficios. |
 
 ## 6. Confidencialidad (RA3)
 
-- Datos personales que se piden y por qué: 
-- Plan de anonimización (qué se quita o codifica antes de compartir):
+- **Datos personales que se piden y por qué:** edad, ocupación y zona urbana de residencia se solicitan únicamente para comprobar la población objetivo y describir la muestra. También se registra la frecuencia de compra, que es un dato de comportamiento necesario para el objetivo. No se piden nombres, cédulas, teléfonos, correos, direcciones exactas ni datos financieros.
+- **Plan de anonimización:** cada respuesta recibe un código como `R001`; no se almacenan identificadores directos ni coordenadas. Antes de compartir el CSV se eliminan campos accidentales que puedan identificar a una persona, se conserva solo la zona urbana de Quito y se separan los registros simulados mediante `origen`. El archivo crudo del formulario no se publica en el repositorio y el CSV compartido contiene únicamente datos anonimizados.
 
 ## 7. Verificación con herramientas (Python/R)
 
-*Escribe `scripts/verificacion_encuesta.py` (o `.R`): debe cargar `plantillas/encuesta_respuestas.csv` y reportar los tipos de cada columna, los datos faltantes por columna y la distribución de `satisfaccion_general` y `recomendaria`. Incluye la salida y responde:*
+Se ejecuta `python scripts/generar_datos_simulados.py` para generar las 100 filas simuladas y luego `python scripts/verificacion_encuesta.py` desde la raíz. El script de verificación carga `plantillas/encuesta_respuestas.csv`, que contiene las respuestas reales y simuladas, imprime los tipos, los datos faltantes y las distribuciones de las variables principales (`frecuencia_compra_retailandina` y `satisfaccion_variedad_saludable`), separando además las respuestas reales de las simuladas.
 
-- ¿Coinciden los tipos con tu predicción de la sección 4?
-- ¿Cuántos datos faltantes hay por columna?
+El CSV final contiene 124 respuestas: 24 marcadas como `real` y 100 como `simulada`. Las filas simuladas también se conservan por separado en `plantillas/encuesta_simulada.csv` para dejar reproducible su generación; no se presentan como evidencia de recolección real.
+La salida completa de la auditoría se conserva en `informes/verificacion.txt`.
 
-*Ejecuta el script sobre el CSV final (separa con un filtro de la columna `origen` las filas reales de las simuladas): ¿qué resultado delataría un sesgo de **no respuesta** y cuál un sesgo de **respuesta**? Escribe tu interpretación usando solo las respuestas reales.*
+**No respuesta:** se invitó a 30 personas y se obtuvieron 24 respuestas reales completas. Por tanto, se registraron 6 no respuestas y una tasa de no respuesta de 20.0%. Las 100 filas simuladas no se incluyen en este cálculo.
+
+**Interpretación de la auditoría:**
+
+- Los tipos observados deben coincidir con la tabla de la sección 4; las respuestas de selección múltiple se almacenan como texto separado por `;`.
+- Un patrón de no respuesta sería una proporción alta de valores faltantes en preguntas sensibles o en un subgrupo concreto, especialmente si quienes abandonan tienen menor frecuencia de compra.
+- Un patrón de sesgo de respuesta sería una concentración poco creíble de respuestas positivas (por ejemplo, casi toda la satisfacción en 5) o comentarios uniformemente favorables, posiblemente por cortesía. La interpretación se realiza solo con filas `origen == "real"`.

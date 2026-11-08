@@ -1,0 +1,59 @@
+Tipos por columna:
+respuesta_id                           str
+fecha                                  str
+edad                                 int64
+ocupacion                              str
+compra_reciente_retailandina           str
+frecuencia_compra_retailandina         str
+frecuencia_ultraprocesados           int64
+comer_distraido_pantallas          float64
+tiempo_promedio_almuerzo             int64
+lectura_etiquetas                      str
+planificacion_menu_semanal           int64
+satisfaccion_variedad_saludable      int64
+origen                                 str
+dtype: object
+
+Datos faltantes por columna:
+respuesta_id                       0
+fecha                              0
+edad                               0
+ocupacion                          0
+compra_reciente_retailandina       0
+frecuencia_compra_retailandina     0
+frecuencia_ultraprocesados         0
+comer_distraido_pantallas          0
+tiempo_promedio_almuerzo           0
+lectura_etiquetas                  0
+planificacion_menu_semanal         0
+satisfaccion_variedad_saludable    0
+origen                             0
+dtype: int64
+
+Resumen de recolección:
+Personas invitadas: 30
+Respuestas reales completas: 24
+Respuestas simuladas: 100
+No respuestas: 6
+Tasa de no respuesta: 20.0%
+
+Distribución de frecuencia de compra (respuestas reales):
+frecuencia_compra_retailandina
+Semanal                    8
+Quincenal                  6
+Varias veces por semana    5
+Mensual                    5
+Name: count, dtype: int64
+
+Distribución de satisfacción de variedad saludable (respuestas reales):
+satisfaccion_variedad_saludable
+4    10
+5     6
+3     6
+2     2
+Name: count, dtype: int64
+
+Interpretación:
+- De 30 personas invitadas, 6 no entregaron una respuesta completa; la tasa de no respuesta es 20.0%.
+- Muchos faltantes concentrados en un grupo también indicarían sesgo de no respuesta.
+- Una concentración extrema de satisfacción alta podría indicar sesgo de respuesta.
