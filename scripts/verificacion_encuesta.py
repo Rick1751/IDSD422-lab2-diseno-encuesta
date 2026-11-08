@@ -35,13 +35,46 @@ def main() -> None:
     print("\nDistribución de satisfacción de variedad saludable (respuestas reales):")
     print(reales["satisfaccion_variedad_saludable"].value_counts(dropna=False))
 
+    satisfaccion = reales["satisfaccion_variedad_saludable"]
+    proporcion_satisfaccion_alta = satisfaccion.ge(4).mean()
+    media_satisfaccion = satisfaccion.mean()
+    calificaciones_uno = satisfaccion.eq(1).sum()
+    compra_reciente = reales["compra_reciente_retailandina"]
+
     print("\nInterpretación:")
     print(
-        "- De 30 personas invitadas, 6 no entregaron una respuesta completa; "
-        "la tasa de no respuesta es 20.0%."
+        f"- En las {respuestas_completas} respuestas reales, el "
+        f"{proporcion_satisfaccion_alta:.1%} calificó con 4 o 5 la variedad "
+        f"saludable; la media fue {media_satisfaccion:.2f} y hubo "
+        f"{calificaciones_uno} calificaciones de 1."
     )
-    print("- Muchos faltantes concentrados en un grupo también indicarían sesgo de no respuesta.")
-    print("- Una concentración extrema de satisfacción alta podría indicar sesgo de respuesta.")
+    if proporcion_satisfaccion_alta >= 0.60 and calificaciones_uno == 0:
+        print(
+            "- La satisfacción es alta y no hay ninguna calificación 1. Esto "
+            "podría indicar sesgo de respuesta por cortesía, pero con "
+            f"n={respuestas_completas} y muestreo por conveniencia no se puede confirmar."
+        )
+    else:
+        print(
+            f"- La proporción de satisfacción alta es {proporcion_satisfaccion_alta:.1%} "
+            "y el patrón observado no permite confirmar un sesgo de respuesta."
+        )
+    print(
+        f"- compra_reciente_retailandina es «Sí» en todas las {len(compra_reciente)} "
+        "filas reales porque quienes respondían «No» terminaban la encuesta "
+        "(filtro de elegibilidad), por lo que no aporta variación."
+    )
+    print(
+        f"- De la no respuesta ({no_respuestas} de {INVITADOS}, "
+        f"{tasa_no_respuesta:.1%}) no se registró información de quienes no "
+        "respondieron, así que no se puede comprobar si se concentra en algún "
+        "subgrupo; es una limitación, no una conclusión."
+    )
+    print(
+        "- En las filas simuladas satisfaccion_variedad_saludable nunca vale 1 "
+        "porque el generador usa randint(2, 5); por eso las simuladas no sirven "
+        "para interpretar sesgos."
+    )
 
 
 if __name__ == "__main__":
