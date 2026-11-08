@@ -54,6 +54,8 @@ satisfaccion_variedad_saludable
 Name: count, dtype: int64
 
 Interpretación:
-- De 30 personas invitadas, 6 no entregaron una respuesta completa; la tasa de no respuesta es 20.0%.
-- Muchos faltantes concentrados en un grupo también indicarían sesgo de no respuesta.
-- Una concentración extrema de satisfacción alta podría indicar sesgo de respuesta.
+- En las 24 respuestas reales, el 66.7% calificó con 4 o 5 la variedad saludable; la media fue 3.83 y hubo 0 calificaciones de 1.
+- La satisfacción es alta y no hay ninguna calificación 1. Esto podría indicar sesgo de respuesta por cortesía, pero con n=24 y muestreo por conveniencia no se puede confirmar.
+- compra_reciente_retailandina es «Sí» en todas las 24 filas reales porque quienes respondían «No» terminaban la encuesta (filtro de elegibilidad), por lo que no aporta variación.
+- De la no respuesta (6 de 30, 20.0%) no se registró información de quienes no respondieron, así que no se puede comprobar si se concentra en algún subgrupo; es una limitación, no una conclusión.
+- En las filas simuladas satisfaccion_variedad_saludable nunca vale 1 porque el generador usa randint(2, 5); por eso las simuladas no sirven para interpretar sesgos.

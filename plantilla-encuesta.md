@@ -161,6 +161,7 @@ La salida completa de la auditoría se conserva en `informes/verificacion.txt`.
 
 **Interpretación de la auditoría:**
 
-- Los tipos observados deben coincidir con la tabla de la sección 4; las respuestas de selección múltiple se almacenan como texto separado por `;`.
-- Un patrón de no respuesta sería una proporción alta de valores faltantes en preguntas sensibles o en un subgrupo concreto, especialmente si quienes abandonan tienen menor frecuencia de compra.
-- Un patrón de sesgo de respuesta sería una concentración poco creíble de respuestas positivas (por ejemplo, casi toda la satisfacción en 5) o comentarios uniformemente favorables, posiblemente por cortesía. La interpretación se realiza solo con filas `origen == "real"`.
+- En las 24 respuestas reales, el 66.7% calificó con 4 o 5 la variedad saludable; la media fue 3.83 y no hubo calificaciones de 1. La satisfacción es alta y esto podría indicar sesgo de respuesta por cortesía, pero con n=24 y muestreo por conveniencia no se puede confirmar.
+- `compra_reciente_retailandina` es «Sí» en todas las 24 filas reales porque quienes respondían «No» terminaban la encuesta (filtro de elegibilidad), por lo que esta variable no aporta variación.
+- De la no respuesta (6 de 30, 20.0%) no se registró información de quienes no respondieron, así que no se puede comprobar si se concentra en algún subgrupo; es una limitación, no una conclusión.
+- Las filas simuladas no se usan para interpretar sesgos; la interpretación es descriptiva de la muestra real y no es generalizable a toda la población.
