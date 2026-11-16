@@ -31,7 +31,7 @@ El segmento permite estudiar una población alcanzable y relevante para la decis
 
 **Método:** Muestreo no probabilístico por conveniencia con referidos declarados. Se contactará a personas accesibles por canales digitales y se verificará la elegibilidad con preguntas filtro. Este método es viable para reunir las 15 a 30 respuestas reales exigidas por la práctica, pero no permite generalizar los resultados a todos los jóvenes de Quito; esa limitación se declarará en el informe.
 
-**Tamaño y justificación:** Se recolectaron 24 respuestas reales, dentro de la meta de 15 a 30 respuestas exigida por la práctica. Para practicar el análisis sin confundirlas con evidencia de campo, se generaron 76 registros simulados con código, marcados en `origen`; nunca se presentan como respuestas reales.
+**Tamaño y justificación:** Se recolectaron 24 respuestas reales, dentro de la meta de 15 a 30 respuestas exigida por la práctica. Para practicar el análisis sin confundirlas con evidencia de campo, se generaron 76 registros simulados con código, marcados en `origen`; nunca se presentan como respuestas reales. No respuesta: se invitó a 30 personas y respondieron 24 (6 no respuestas, 20.0 %); solo aplica a la parte real.
 
 **Cómo se seleccionarán los participantes:** Cada integrante difundirá el formulario a contactos de 18 a 25 años que vivan en Quito y hayan comprado en RetailAndina en los últimos tres meses. El formulario finalizará para quienes no cumplan los filtros. Se procurará diversidad de edades, ocupación y frecuencia de compra.
 
@@ -51,6 +51,38 @@ muestra = elegibles.sample(
 )
 print(muestra[["respuesta_id", "edad", "ocupacion"]])
 ```
+
+**Salida de la corrida**
+
+```text
+    respuesta_id  edad   ocupacion
+8           R009    21  Estudiante
+22          R023    19  Estudiante
+15          R016    25  Estudiante
+3           R004    22  Trabajador
+14          R015    19       Ambos
+0           R001    21  Estudiante
+16          R017    21  Trabajador
+18          R019    18  Estudiante
+11          R012    22  Trabajador
+23          R024    25  Trabajador
+17          R018    24       Ambos
+2           R003    19  Estudiante
+12          R013    20  Estudiante
+4           R005    20  Estudiante
+6           R007    19  Estudiante
+19          R020    22  Trabajador
+13          R014    23  Trabajador
+21          R022    23       Ambos
+1           R002    24       Ambos
+9           R010    24       Ambos
+5           R006    23       Ambos
+7           R008    25  Trabajador
+20          R021    20  Estudiante
+10          R011    18  Estudiante
+```
+
+Como hay 24 casos elegibles (menos de 30), la muestra contiene a los 24; la semilla fija el orden de selección y garantiza reproducibilidad.
 
 El formulario verificó la residencia en Quito, pero esa variable no se guarda en el CSV para minimizar datos personales. `sample()` selecciona de forma reproducible hasta 30 casos elegibles disponibles; no constituye un muestreo aleatorio de toda la ciudad. Por ello los resultados se interpretarán como descriptivos de la muestra.
 
