@@ -103,6 +103,10 @@ Las preguntas son neutras, específicas y corresponden a una sola idea. Las preg
 | 9 | `planificacion_menu_semanal` | ¿En qué medida planificas o preparas con anticipación tu menú semanal? | Cualitativa ordinal | `int64` | 1 Nada, 2 Poco, 3 Moderado, 4 Totalmente |
 | 10 | `satisfaccion_variedad_saludable` | ¿Qué tan satisfecho o satisfecha estás con la variedad de alimentos saludables en RetailAndina? | Cualitativa ordinal | `int64` | 1 Muy insatisfecho/a, 2 Insatisfecho/a, 3 Ni satisfecho/a ni insatisfecho/a, 4 Satisfecho/a, 5 Muy satisfecho/a |
 
+Las preguntas 1 y 3 son filtros de elegibilidad y la 10 mide directamente el objetivo; la 2 y la 4 describen la muestra; las 5 a 9 son variables de contexto sobre hábitos alimentarios para describir al segmento. Limitación: la pregunta 6 combina 'alimentos que compras en RetailAndina' con 'comidas principales', por lo que su interpretación es aproximada; se conservó el texto original porque debe coincidir con el cuestionario aplicado.
+
+La verificación de residencia en Quito se hizo como pregunta filtro previa en el formulario y no se guarda en el CSV.
+
 ### Formulario
 
 **1. Edad — `edad`**  
