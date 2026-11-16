@@ -185,8 +185,8 @@ Evidencia en las respuestas reales (n=24): 66.7 % calificó 4 o 5 la variedad sa
 
 ## 6. Confidencialidad (RA3)
 
-- **Datos personales que se piden y por qué:** edad, ocupación y zona urbana de residencia se solicitan únicamente para comprobar la población objetivo y describir la muestra. También se registra la frecuencia de compra, que es un dato de comportamiento necesario para el objetivo. No se piden nombres, cédulas, teléfonos, correos, direcciones exactas ni datos financieros.
-- **Plan de anonimización:** cada respuesta recibe un código como `R001`; no se almacenan identificadores directos ni coordenadas. Antes de compartir el CSV se eliminan campos accidentales que puedan identificar a una persona, se conserva solo la zona urbana de Quito y se separan los registros simulados mediante `origen`. El archivo crudo del formulario no se publica en el repositorio y el CSV compartido contiene únicamente datos anonimizados.
+- **Datos personales que se piden y por qué:** edad, ocupación y frecuencia de compra son datos guardados para describir la muestra y el comportamiento necesario para el objetivo. La residencia en la zona urbana de Quito se verifica solo como filtro en el formulario y NO se almacena en el CSV. No se piden nombres, cédulas, teléfonos, correos, direcciones exactas ni datos financieros.
+- **Plan de anonimización:** cada respuesta recibe un código como `R001`; no se almacenan identificadores directos ni coordenadas. Antes de compartir el CSV se eliminan campos accidentales que puedan identificar a una persona y se separan los registros simulados mediante `origen`. El archivo crudo del formulario no se publica en el repositorio y el CSV compartido contiene únicamente datos anonimizados.
 
 ## 7. Verificación con herramientas (Python/R)
 
