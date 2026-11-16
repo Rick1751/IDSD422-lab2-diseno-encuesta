@@ -2,7 +2,7 @@
 
 **Equipo:** 1  
 **Integrantes:** Carlos Rojas, David Amanta, Esteban Valenzuela, Ricardo Leon, Alan Tingo  
-**Fecha:** 08/11/2026  
+**Fecha:** 19/11/2026  
 **Repositorio (fork):** https://github.com/Rick1751/IDSD422-lab2-diseno-encuesta  
 **Enfoque del equipo:** Jóvenes de 18 a 25 años que compran en RetailAndina, Quito
 
@@ -12,7 +12,7 @@ Estimar, dentro de la muestra, la proporción de jóvenes de 18 a 25 años que c
 
 ## 2. Población objetivo
 
-- **Población:** Personas de 18 a 25 años, estudiantes o trabajadoras, residentes en la zona urbana de Quito, que hayan comprado alimentos en RetailAndina al menos una vez en los últimos tres meses.
+- **Población:** Personas de 18 a 25 años, estudiantes o trabajadores, residentes en la zona urbana de Quito, que hayan comprado alimentos en RetailAndina al menos una vez en los últimos tres meses.
 - **Inclusión:** Cumplir la edad, residir en Quito y tener experiencia reciente de compra en RetailAndina.
 - **Exclusión:** Menores de 18 años, mayores de 25, personas que no residan en Quito o que no hayan comprado en RetailAndina en los últimos tres meses.
 
@@ -88,7 +88,7 @@ El formulario verificó la residencia en Quito, pero esa variable no se guarda e
 
 ## 4. Cuestionario (10 preguntas)
 
-Las preguntas son neutras, específicas y corresponden a una sola idea. Las preguntas 1 y 3 funcionan como filtros de elegibilidad.
+Las preguntas son neutras y específicas. Las preguntas 5, 6 y 7 tienen limitaciones de redacción: la 5 agrupa tres tipos de alimentos, la 6 mezcla compras en RetailAndina con comidas principales y la 7 se refiere al almuerzo preparado con alimentos comprados en RetailAndina. Se conservaron tal como se aplicaron. Las preguntas 1 y 3 funcionan como filtros de elegibilidad.
 
 | # | Variable | Pregunta | Tipo de variable | Dtype al cargar | Opciones / escala |
 |---|---|---|---|---|---|
@@ -108,6 +108,14 @@ Las preguntas 1 y 3 son filtros de elegibilidad y la 10 mide directamente el obj
 La verificación de residencia en Quito se hizo como pregunta filtro previa en el formulario y no se guarda en el CSV.
 
 ### Formulario
+
+**Filtro de residencia**  
+¿Resides en la zona urbana de Quito?
+
+- Sí
+- No (finalizar la encuesta)
+
+Esta respuesta se usa solo como filtro y no se guarda en el CSV.
 
 **1. Edad — `edad`**  
 ¿Cuántos años cumplidos tienes? Respuesta numérica. Si está fuera de 18 a 25, finalizar la encuesta.
