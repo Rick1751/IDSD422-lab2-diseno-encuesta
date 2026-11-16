@@ -87,14 +87,14 @@ python scripts/verificacion_encuesta.py
 
 ## Recolección de datos (semana del feriado)
 
-Tu meta es conseguir entre 15 y 30 respuestas reales por equipo, unas 3 a 6 por integrante. La vía más práctica: envía el formulario (o la encuesta en papel) a familiares, amigos y compañeros que califiquen en tu población, por WhatsApp, correo o en persona. Para practicar los análisis del capítulo 4 y del laboratorio 7, este repositorio incluye 100 filas simuladas generadas con código, marcadas en la columna `origen` como simulada. Eso se declara en el informe: simular no es inventar en silencio.
+Tu meta es conseguir entre 15 y 30 respuestas reales por equipo, unas 3 a 6 por integrante. La vía más práctica: envía el formulario (o la encuesta en papel) a familiares, amigos y compañeros que califiquen en tu población, por WhatsApp, correo o en persona. Para practicar los análisis del capítulo 4 y del laboratorio 7, este repositorio incluye 76 filas simuladas generadas con código, marcadas en la columna `origen` como simulada. Eso se declara en el informe: simular no es inventar en silencio.
 
 Las filas del CSV de plantilla son solo ejemplos de formato (incluida una simulada). Se reemplazan con tus datos y ajustas las columnas a tu cuestionario (una columna por pregunta, más la columna `origen`).
 
 1. **Población (sección 2).** Defínela de modo que sea alcanzable. Una opción práctica: personas de 18 años o más que compran habitualmente (al menos una vez al mes) en supermercados de su ciudad. Así tus contactos califican, y el canal (familiares y amigos) se declara como muestreo por conveniencia más referidos, mitigando los sesgos que identificaste en la sección 5.
 2. **Instrumento.** Monta el cuestionario aprobado en el borrador, con las mismas preguntas y opciones de la sección 4. Si aplicas opciones distintas, el CSV termina con categorías inconsistentes, por ejemplo "a veces" contra "aveces".
 3. **Aplicación real.** Registra una fila por persona con `origen = real`, código de respuesta (R001...), fecha en formato ISO y las opciones exactas del cuestionario.
-4. **Relleno simulado (opcional).** `scripts/generar_datos_simulados.py` genera 100 filas con semilla `422`, respetando las opciones del cuestionario y distribuciones plausibles. Las filas quedan en `plantillas/encuesta_simulada.csv` y también se incorporan al CSV final con `origen = simulada`.
+4. **Relleno simulado (opcional).** `scripts/generar_datos_simulados.py` genera 76 filas con semilla `422`, respetando las opciones del cuestionario y distribuciones plausibles. Las filas quedan en `plantillas/encuesta_simulada.csv` y también se incorporan al CSV final con `origen = simulada`.
 5. **Anonimización (RA3).** No pongas nombres ni correos. El archivo crudo no se sube al repositorio.
 6. **Auditoría.** Ejecuta el script de verificación sobre el CSV final y separa las filas reales de las simuladas (filtra la columna `origen`) para que la interpretación de sesgos use solo datos reales.
 7. **No respuesta.** Registra las invitaciones, respuestas completas y no respuestas. En este proyecto se invitaron 30 personas, se obtuvieron 24 respuestas reales completas y se registraron 6 no respuestas (20.0%).
@@ -102,7 +102,7 @@ Las filas del CSV de plantilla son solo ejemplos de formato (incluida una simula
 ## Entregables
 
 - **Borrador (práctica, martes 20 de octubre, al final de la sesión).** `plantilla-encuesta.md` completa, con los tres componentes de código escritos, y el **PDF en `informes/`** del fork.
-- **Hito 1 final (martes 10 de noviembre).** Plantilla refinada, CSV anonimizado con 24 respuestas reales y 100 simuladas marcadas en la columna `origen`, la salida interpretada del script de verificación y el **PDF actualizado en `informes/`**; entrega el PDF + el enlace del fork.
+- **Hito 1 final (martes 10 de noviembre).** Plantilla refinada, CSV anonimizado con 24 respuestas reales y 76 simuladas marcadas en la columna `origen`, la salida interpretada del script de verificación y el **PDF actualizado en `informes/`**; entrega el PDF + el enlace del fork.
 
 La evaluación está detallada en `EVALUACION.md` (rúbrica de 100 puntos; la nota es puntos ÷ 100 × 20).
 

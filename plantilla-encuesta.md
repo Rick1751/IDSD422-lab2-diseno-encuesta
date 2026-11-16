@@ -31,7 +31,7 @@ El segmento permite estudiar una población alcanzable y relevante para la decis
 
 **Método:** Muestreo no probabilístico por conveniencia con referidos declarados. Se contactará a personas accesibles por canales digitales y se verificará la elegibilidad con preguntas filtro. Este método es viable para reunir las 15 a 30 respuestas reales exigidas por la práctica, pero no permite generalizar los resultados a todos los jóvenes de Quito; esa limitación se declarará en el informe.
 
-**Tamaño y justificación:** Se recolectaron 24 respuestas reales, dentro de la meta de 15 a 30 respuestas exigida por la práctica. Para practicar el análisis sin confundirlas con evidencia de campo, se generaron 100 registros simulados con código, marcados en `origen`; nunca se presentan como respuestas reales.
+**Tamaño y justificación:** Se recolectaron 24 respuestas reales, dentro de la meta de 15 a 30 respuestas exigida por la práctica. Para practicar el análisis sin confundirlas con evidencia de campo, se generaron 76 registros simulados con código, marcados en `origen`; nunca se presentan como respuestas reales.
 
 **Cómo se seleccionarán los participantes:** Cada integrante difundirá el formulario a contactos de 18 a 25 años que vivan en Quito y hayan comprado en RetailAndina en los últimos tres meses. El formulario finalizará para quienes no cumplan los filtros. Se procurará diversidad de edades, ocupación y frecuencia de compra.
 
@@ -152,12 +152,12 @@ En promedio, ¿cuántos minutos dedicas a tu almuerzo habitual preparado con ali
 
 ## 7. Verificación con herramientas (Python/R)
 
-Se ejecuta `python scripts/generar_datos_simulados.py` para generar las 100 filas simuladas y luego `python scripts/verificacion_encuesta.py` desde la raíz. El script de verificación carga `plantillas/encuesta_respuestas.csv`, que contiene las respuestas reales y simuladas, imprime los tipos, los datos faltantes y las distribuciones de las variables principales (`frecuencia_compra_retailandina` y `satisfaccion_variedad_saludable`), separando además las respuestas reales de las simuladas.
+Se ejecuta `python scripts/generar_datos_simulados.py` para generar las 76 filas simuladas y luego `python scripts/verificacion_encuesta.py` desde la raíz. El script de verificación carga `plantillas/encuesta_respuestas.csv`, que contiene las respuestas reales y simuladas, imprime los tipos, los datos faltantes y las distribuciones de las variables principales (`frecuencia_compra_retailandina` y `satisfaccion_variedad_saludable`), separando además las respuestas reales de las simuladas.
 
-El CSV final contiene 124 respuestas: 24 marcadas como `real` y 100 como `simulada`. Las filas simuladas también se conservan por separado en `plantillas/encuesta_simulada.csv` para dejar reproducible su generación; no se presentan como evidencia de recolección real.
+El CSV final contiene 100 respuestas: 24 marcadas como `real` y 76 como `simulada`. Las filas simuladas también se conservan por separado en `plantillas/encuesta_simulada.csv` para dejar reproducible su generación; no se presentan como evidencia de recolección real.
 La salida completa de la auditoría se conserva en `informes/verificacion.txt`.
 
-**No respuesta:** se invitó a 30 personas y se obtuvieron 24 respuestas reales completas. Por tanto, se registraron 6 no respuestas y una tasa de no respuesta de 20.0%. Las 100 filas simuladas no se incluyen en este cálculo.
+**No respuesta:** se invitó a 30 personas y se obtuvieron 24 respuestas reales completas. Por tanto, se registraron 6 no respuestas y una tasa de no respuesta de 20.0%. Las 76 filas simuladas no se incluyen en este cálculo.
 
 **Interpretación de la auditoría:**
 

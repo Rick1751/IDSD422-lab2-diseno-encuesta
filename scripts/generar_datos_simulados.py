@@ -47,7 +47,7 @@ def main() -> None:
     }
     start = date(2026, 11, 4)
     rows = []
-    for index in range(1, 101):
+    for index in range(1, 77):
         rows.append(
             {
                 "respuesta_id": f"S{index:03d}",

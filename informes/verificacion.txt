@@ -33,7 +33,7 @@ dtype: int64
 Resumen de recolección:
 Personas invitadas: 30
 Respuestas reales completas: 24
-Respuestas simuladas: 100
+Respuestas simuladas: 76
 No respuestas: 6
 Tasa de no respuesta: 20.0%
 
