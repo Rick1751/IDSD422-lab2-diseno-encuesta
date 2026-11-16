@@ -181,6 +181,8 @@ En promedio, ¿cuántos minutos dedicas a tu almuerzo habitual preparado con ali
 | Sesgo de selección | La muestra se obtiene de contactos de los integrantes y puede sobre representar estudiantes, conocidos y clientes frecuentes. | Usar referidos de perfiles distintos, buscar variedad de edades y ocupación, aplicar los mismos filtros a todos y declarar que el muestreo es por conveniencia. |
 | Sesgo de respuesta | Una persona puede declarar mayor satisfacción por cortesía o evitar criticar a RetailAndina. | Aplicar una encuesta anónima, no pedir nombre ni correo, usar redacción neutral, permitir respuestas intermedias y explicar que no afecta sus compras ni beneficios. |
 
+Evidencia en las respuestas reales (n=24): 66.7 % calificó 4 o 5 la variedad saludable (media 3.83, sin calificaciones de 1), lo que podría reflejar sesgo de respuesta por cortesía, aunque con n=24 y muestreo por conveniencia no puede confirmarse. La no respuesta fue de 6 de 30 (20.0 %) y no se registró información de quienes no respondieron, por lo que no se puede evaluar sesgo de selección entre ellos. Estas conclusiones usan solo filas con origen = real.
+
 ## 6. Confidencialidad (RA3)
 
 - **Datos personales que se piden y por qué:** edad, ocupación y zona urbana de residencia se solicitan únicamente para comprobar la población objetivo y describir la muestra. También se registra la frecuencia de compra, que es un dato de comportamiento necesario para el objetivo. No se piden nombres, cédulas, teléfonos, correos, direcciones exactas ni datos financieros.
